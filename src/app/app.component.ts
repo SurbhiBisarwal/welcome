@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'welcome';
+  title = 'Surbhi Baudam hai';
+  courses:string[]=['Java','Angular','Android','Python'];
 }
