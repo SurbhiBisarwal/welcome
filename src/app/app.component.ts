@@ -6,9 +6,13 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  name: string = "Jack Smith";
-  email: string = " jack.smith@gmail.com";
-  number: string = "63129847";
+  num: Number = 0;
+  add5(): void {
+    this.num = this.num + 5;
+  }
+  reset(): void {
+    this.num = 0;
+  }
 }
 
 //   submit() {
