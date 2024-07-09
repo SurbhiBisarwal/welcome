@@ -6,9 +6,15 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  num: Number = 0;
-  add5(): void {
-    this.num = this.num + 5;
+  num: Number = 8;
+  add1(): void {
+    this.num = this.num + 1;
+  }
+  add10(): void {
+    this.num = this.num + 10;
+  }
+  add100(): void {
+    this.num = this.num + 100;
   }
   reset(): void {
     this.num = 0;
