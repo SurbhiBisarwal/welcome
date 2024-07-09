@@ -1,13 +1,51 @@
-<h6>
-  task 4:: Create an Angular app with 3 buttons Add1, Add2 and Reset which adds
-  1 , 2 or resets the expression. The initial value of the expression is '0' and
-  its value is 0. Whenever a number is added it is added to the expression and
-  also to the value.
-</h6>
-<div class="container">
-  <button class="btn m-1" (click)="addExpression(1)">Add1</button>
-  <button class="btn m-1" (click)="addExpression(2)">Add2</button>
-  <button class="btn m-1" (click)="reset()">Reset</button>
-  <p>Expression:{{ expression }}</p>
-  <p>Value:{{ value }}</p>
+<div class="container m-3" style="border: 1px solid red" border-bottom="none">
+  <div class="row">
+    <div class="col">
+      Team A
+      <div class="col">
+        <br />
+        <div class="row" style="margin-left: 19%">{{ teamAScore }}</div>
+        <br />
+        <div class="row">
+          <button (click)="point3('A')" style="width: 50%">+3points</button>
+        </div>
+        <br />
+        <div class="row">
+          <button (click)="point2('A')" style="width: 50%">+2points</button>
+        </div>
+        <br />
+        <div class="row">
+          <button (click)="freeThrow('A')" style="width: 50%">
+            Free Throw
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      Team B
+      <div class="col">
+        <br />
+        <div class="row" style="margin-left: 19%">{{ teamBScore }}</div>
+        <br />
+        <div class="row">
+          <button (click)="point3('B')" style="width: 50%">+3points</button>
+        </div>
+        <br />
+        <div class="row">
+          <button (click)="point2('B')" style="width: 50%">+2points</button>
+        </div>
+        <br />
+        <div class="row">
+          <button (click)="freeThrow('B')" style="width: 50%">
+            Free Throw
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+
+  <div class="row" style="padding-left: 35%">
+    <button (click)="reset()" style="width: 50%">Reset</button>
+  </div>
 </div>

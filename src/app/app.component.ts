@@ -6,20 +6,32 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  expression: string = "0";
-  value: number = 0;
-  addExpression(num: number): void {
-    // if (this.expression === "0") {
-    //   this.expression = `${num}`;
-    // }
+  teamAScore: number = 0;
+  teamBScore: number = 0;
 
-    this.expression += `+${num}`;
-
-    this.value += num;
+  point3(team): void {
+    if (team == "A") {
+      this.teamAScore = this.teamAScore + 3;
+    } else {
+      this.teamBScore = this.teamBScore + 3;
+    }
   }
-
+  point2(team): void {
+    if (team == "A") {
+      this.teamAScore = this.teamAScore + 2;
+    } else {
+      this.teamBScore = this.teamBScore + 2;
+    }
+  }
+  freeThrow(team): void {
+    if (team == "A") {
+      this.teamAScore = this.teamAScore + 1;
+    } else {
+      this.teamBScore = this.teamBScore + 1;
+    }
+  }
   reset(): void {
-    this.expression = "0";
-    this.value = 0;
+    this.teamAScore = 0;
+    this.teamBScore = 0;
   }
 }
