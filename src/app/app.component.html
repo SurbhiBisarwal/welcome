@@ -1,12 +1,13 @@
 <h6>
-  Task 2 X, Y and operationsCreate 3 buttons with displaying x+y, x-yand
-  x*y.Clicking on x+ywill display 8+5=13Clicking on x-ywill display
-  8-5=3Clicking on x*ywill display 8*5=40
+  task 4:: Create an Angular app with 3 buttons Add1, Add2 and Reset which adds
+  1 , 2 or resets the expression. The initial value of the expression is '0' and
+  its value is 0. Whenever a number is added it is added to the expression and
+  also to the value.
 </h6>
 <div class="container">
-  <button class="btn m-1" (click)="add()">x + y</button>
-  <button class="btn m-1" (click)="sub()">x - y</button>
-  <button class="btn m-1" (click)="multi()">x * y</button>
-
-  <p>{{ result }}</p>
+  <button class="btn m-1" (click)="addExpression(1)">Add1</button>
+  <button class="btn m-1" (click)="addExpression(2)">Add2</button>
+  <button class="btn m-1" (click)="reset()">Reset</button>
+  <p>Expression:{{ expression }}</p>
+  <p>Value:{{ value }}</p>
 </div>

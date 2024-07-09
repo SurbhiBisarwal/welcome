@@ -6,26 +6,20 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  x: number = 8;
-  y: number = 5;
-  result: string = "";
+  expression: string = "0";
+  value: number = 0;
+  addExpression(num: number): void {
+    // if (this.expression === "0") {
+    //   this.expression = `${num}`;
+    // }
 
-  add(): void {
-    this.result = `${this.x} + ${this.y} = ${this.x + this.y}`;
+    this.expression += `+${num}`;
+
+    this.value += num;
   }
 
-  sub(): void {
-    this.result = `${this.x} - ${this.y} = ${this.x - this.y}`;
-  }
-
-  multi(): void {
-    this.result = `${this.x} * ${this.y} = ${this.x * this.y}`;
+  reset(): void {
+    this.expression = "0";
+    this.value = 0;
   }
 }
-
-//   submit() {
-//     let name = document.getElementById("name");
-//     let email = document.getElementById("email");
-//     let mobile = document.getElementById("mobile");
-//   }
-// }
