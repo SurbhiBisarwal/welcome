@@ -6,18 +6,20 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  num: Number = 8;
-  add1(): void {
-    this.num = this.num + 1;
+  x: number = 8;
+  y: number = 5;
+  result: string = "";
+
+  add(): void {
+    this.result = `${this.x} + ${this.y} = ${this.x + this.y}`;
   }
-  add10(): void {
-    this.num = this.num + 10;
+
+  sub(): void {
+    this.result = `${this.x} - ${this.y} = ${this.x - this.y}`;
   }
-  add100(): void {
-    this.num = this.num + 100;
-  }
-  reset(): void {
-    this.num = 0;
+
+  multi(): void {
+    this.result = `${this.x} * ${this.y} = ${this.x * this.y}`;
   }
 }
 

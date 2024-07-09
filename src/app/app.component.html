@@ -1,14 +1,12 @@
 <h6>
-  Task 1::Add 1, Add 10, Add 100Create a new Angular app with 3 buttons Add 1,
-  Add 10 and Add 100 which as the name suggests add 1 , 10 or 100 respectively
-  to the number displayed below the buttons. The number initially has the value
-  8
+  Task 2 X, Y and operationsCreate 3 buttons with displaying x+y, x-yand
+  x*y.Clicking on x+ywill display 8+5=13Clicking on x-ywill display
+  8-5=3Clicking on x*ywill display 8*5=40
 </h6>
 <div class="container">
-  <button class="btn m-1" (click)="add1()">Add 1</button>
-  <button class="btn m-1" (click)="add10()">Add 10</button>
-  <button class="btn m-1" (click)="add100()">Add 100</button>
-  <button class="btn m-1" (click)="reset()">Reset</button>
+  <button class="btn m-1" (click)="add()">x + y</button>
+  <button class="btn m-1" (click)="sub()">x - y</button>
+  <button class="btn m-1" (click)="multi()">x * y</button>
 
-  <div class="dark-text">Number:{{ num }}</div>
+  <p>{{ result }}</p>
 </div>

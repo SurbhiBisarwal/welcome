@@ -1,6 +1,12 @@
 .btn {
   background-color: blue;
   color: beige;
+  font-weight: bold;
+  border-color: black;
+}
+.btn:hover {
+  background-color: greenyellow;
+  color: black;
 }
 .container {
   margin-left: 2px;
