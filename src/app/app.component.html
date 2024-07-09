@@ -1,24 +1,21 @@
-<div class="row">
-  <div class="col">
-    <div ngbDropdown class="d-inline-block">
-      <button
-        class="btn btn-outline-primary"
-        id="dropdownBasic1"
-        ngbDropdownToggle
-      >
-        Toogle Dropdown
-      </button>
-      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-        <button class="dropdown-item">Action-1</button>
-        <button class="dropdown-item">Another Action</button>
-        <button class="dropdown-item">Something else here</button>
-      </div>
-    </div>
+<div class="container">
+  <h6>
+    Create a new Angular app with 3 text fields for name, email and mobile.
+    Display the values entered by the user below. Initially, the values for
+    name, email, mobileare Jack Smith, jack.smith@gmail.com and 45623767 and
+    these are displayed in the text field also.After successfully running the
+    application, submit it.
+  </h6>
+  <label>Name</label>
+  <input type="text" class="form-control" [(ngModel)]="name" />
+  <label>Email</label>
+  <input type="text" class="form-control" [(ngModel)]="email" />
+  <label>Contact Number</label>
+  <input type="text" class="form-control" [(ngModel)]="number" />
+
+  <div class="text-primary">
+    NAME: {{ name }}<br />
+    EMAIL:{{ email }} <br />
+    MOBILE: {{ number }}
   </div>
 </div>
-<!-- <h5>{{title}}</h5>
-<div class="container">
-  <div *ngFor="let c1 of courses">
-    {{c1}}
-  </div>
-</div> -->
