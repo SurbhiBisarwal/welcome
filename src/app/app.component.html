@@ -7,7 +7,8 @@
   <button class="btn m-1" (click)="remove('top')">Remove from top</button>
   <button class="btn m-1" (click)="remove('bottom')">Remove from bottom</button>
   <h4>Name of Cities</h4>
-  <div *ngFor="let c1 of cities">
+  <div *ngFor="let c1 of cities; index as i">
     {{ c1 }}
+    <span (click)="delete(i)" class="material-symbols-outlined"> delete </span>
   </div>
 </div>
