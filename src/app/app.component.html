@@ -1,6 +1,13 @@
 <div class="container">
-  <div *ngFor="let c1 of courses">
+  <label>Name Of City</label>
+  <input type="text" class="form-control" [(ngModel)]="cname" />
+  <button class="btn m-1" (click)="add('top')">Add at top</button>
+  <button class="btn m-1" (click)="add('bottom')">Add at bottom</button>
+  <br />
+  <button class="btn m-1" (click)="remove('top')">Remove from top</button>
+  <button class="btn m-1" (click)="remove('bottom')">Remove from bottom</button>
+  <h4>Name of Cities</h4>
+  <div *ngFor="let c1 of cities">
     {{ c1 }}
   </div>
-  <div *ngFor="let h1 of num">{{ h1 }},{{ h1 * 2 }}</div>
 </div>

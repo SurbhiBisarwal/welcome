@@ -6,6 +6,26 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  courses: string[] = ["Angular", "Java", "Android", "Python"];
-  num: number[] = [5, 8, 10, 11, 15, 3, 6];
+  cities: string[] = ["Delhi", "London", "Paris", "New York"];
+  cname: string = "";
+  add(position: string) {
+    if (this.cname) {
+      if (position === "top") {
+        this.cities.unshift(this.cname);
+      } else if (position === "bottom") {
+        this.cities.push(this.cname);
+      }
+      this.cname = "";
+    }
+  }
+
+  remove(position: string) {
+    if (this.cities.length > 0) {
+      if (position === "top") {
+        this.cities.shift();
+      } else if (position === "bottom") {
+        this.cities.pop();
+      }
+    }
+  }
 }
