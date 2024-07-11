@@ -6,37 +6,25 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  cities: string[] = ["Delhi", "London", "Paris", "New York"];
-  cname: string = "";
-  add(position: string) {
-    if (this.cname) {
-      if (position === "top") {
-        this.cities.unshift(this.cname);
-      } else if (position === "bottom") {
-        this.cities.push(this.cname);
-      }
-      this.cname = "";
-    }
+  num: number[] = [2, 3, 5, 7];
+  n1: number = 0;
+
+  add(n2): void {
+    this.num.push(n2);
   }
 
-  remove(position: string) {
-    if (this.cities.length > 0) {
-      if (position === "top") {
-        this.cities.shift();
-      } else if (position === "bottom") {
-        this.cities.pop();
-      }
-    }
-  }
   delete(i: number): void {
-    let n1: string[];
+    let n1: number[];
     console.log("i=" + i);
-    n1 = this.cities.splice(i, 1);
-    this.cname = n1[0];
+    n1 = this.num.splice(i, 1);
+    // this.n1 = n1[i];
   }
-  copy(c1: string): void {
-    console.log(c1);
-    let copyCity: string[] = this.cities;
-    this.cname = c1;
+
+  get sum(): number {
+    return this.num.reduce((acc, curr) => acc + curr, 0);
+  }
+
+  get evenCount(): number {
+    return this.num.reduce((acc, curr) => acc + (curr % 2 === 0 ? 1 : 0), 0);
   }
 }
