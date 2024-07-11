@@ -18,6 +18,7 @@ export class AppComponent {
       this.cname = "";
     }
   }
+
   remove(position: string) {
     if (this.cities.length > 0) {
       if (position === "top") {
@@ -27,11 +28,15 @@ export class AppComponent {
       }
     }
   }
-
   delete(i: number): void {
     let n1: string[];
     console.log("i=" + i);
     n1 = this.cities.splice(i, 1);
     this.cname = n1[0];
+  }
+  copy(c1: string): void {
+    console.log(c1);
+    let copyCity: string[] = this.cities;
+    this.cname = c1;
   }
 }

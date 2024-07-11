@@ -7,8 +7,24 @@
   <button class="btn m-1" (click)="remove('top')">Remove from top</button>
   <button class="btn m-1" (click)="remove('bottom')">Remove from bottom</button>
   <h4>Name of Cities</h4>
-  <div *ngFor="let c1 of cities; index as i">
-    {{ c1 }}
-    <span (click)="delete(i)" class="material-symbols-outlined"> delete </span>
+  <div class="row" *ngFor="let c1 of cities; let i = index">
+    <div class="col-1 bg-info m-1">{{ i + 1 }}</div>
+    <div class="col-3 bg-success m-1">{{ c1 }}</div>
+    <span
+      (click)="delete(i)"
+      class="material-symbols-outlined col-2 bg-primary text-white m-1"
+    >
+      delete
+    </span>
+    <span (click)="copy(c1)" class="material-symbols-outlined col-4 border m-1">
+      file_copy
+    </span>
   </div>
 </div>
+
+<!-- <div class="row" *ngFor="let c1 of cities">
+    <div class="col-3 bg-success m-1">{{ name }}</div>
+    <div class="col-2 bg-primary text-white m-1">{{ name }}</div>
+    <div class="col-4 border m-1">{{ name }}</div>
+  </div>
+</div> -->
