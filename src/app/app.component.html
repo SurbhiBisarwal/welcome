@@ -1,25 +1,46 @@
-<div class="container">
-  <div>
-    <label>New Number</label><br />
-    <input type="number" class="form-control" [(ngModel)]="n2" /><br />
-    <button class="btn m-1" (click)="add(n2)">Add</button>
-  </div>
-  <h4>List Of Numbers</h4>
-  <button class="btn m-1" (click)="insertOrder()">Insert Order</button>
-  <button class="btn m-1" (click)="ascending()">Ascending</button>
-  <button class="btn m-1" (click)="descending()">Descending</button>
-  <button class="btn m-1" (click)="even()">Even</button>
-  <button class="btn m-1" (click)="odd()">Odd</button>
-  <div class="row">
-    <div class="col-1 m-1"><strong>Index</strong></div>
-    <div class="col-1 m-1"><strong>Value</strong></div>
-  </div>
-  <div class="row" *ngFor="let n1 of num; index as i">
-    <div class="col-1 m-1">
-      {{ i + 1 }}
-    </div>
-    <div class="col-1 border m-1">
-      {{ n1 }}
-    </div>
+<div class="container m-3">
+  <label>Id</label><br />
+  <input type="text" [(ngModel)]="newProduct.id" /><br />
+  <label>Brand</label><br />
+  <input type="text" [(ngModel)]="newProduct.brand" /><br />
+  <label>Price</label><br />
+  <input type="number" [(ngModel)]="newProduct.price" /><br />
+  <button (click)="add()">Add Product</button>
+  <div class="product-data">
+    <h2>Product Data</h2>
+    <table border="1">
+      <tr>
+        <th>Id</th>
+        <th>Brand</th>
+        <th>Price</th>
+        <th>Qty</th>
+        <th>Value</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let product of products">
+        <td>{{ product.id }}</td>
+        <td>{{ product.brand }}</td>
+        <td>{{ product.price }}</td>
+        <td>{{ product.qtySold }}</td>
+        <td>{{ product.price * product.qtySold }}</td>
+        <td>
+          <span
+            (click)="resetQuantity(product)"
+            class="col-1 material-symbols-outlined"
+          >
+            close
+          </span>
+          <span
+            (click)="incrementQuantity(product)"
+            class="col-1 material-symbols-outlined"
+          >
+            check
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p style="color: blue">Number of Products: {{ products.length }}</p>
+    <p style="color: blue">Total Quantity Sold: {{ getTotalQuantitySold() }}</p>
+    <p style="color: blue">Total Sales Value: {{ getTotalSalesValue() }}</p>
   </div>
 </div>
