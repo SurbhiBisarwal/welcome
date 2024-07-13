@@ -6,45 +6,29 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  products = [
-    { id: "P104", brand: "Pepsi", price: 4, qtySold: 22 },
-    { id: "C124", brand: "Coke", price: 4, qtySold: 26 },
-    { id: "M155", brand: "Maggie", price: 6, qtySold: 10 },
-    { id: "DM241", brand: "Cadburys", price: 10, qtySold: 15 },
-    { id: "5S118", brand: "5 Star", price: 8, qtySold: 8 },
+  players = [
+    { name: "Jack", answered: 10, correct: 8 },
+    { name: "Steve", answered: 8, correct: 7 },
+    { name: "William", answered: 12, correct: 9 },
+    { name: "Kathy", answered: 11, correct: 10 },
   ];
-  newProduct = {
-    id: "",
-    brand: "",
-    price: 0,
-    qtySold: 0,
-  };
 
-  getTotalQuantitySold() {
-    return this.products.reduce((total, product) => total + product.qtySold, 0);
+  getPlayer(position: number) {
+    let sortPlayers = [...this.players];
+    sortPlayers.sort(this.sortScore);
+    return sortPlayers[position - 1];
   }
 
-  getTotalSalesValue() {
-    return this.products.reduce(
-      (total, product) => total + product.price * product.qtySold,
-      0
-    );
-  }
-  resetQuantity(product) {
-    product.qtySold = 0;
+  sortScore(p1, p2) {
+    let p1s = p1.correct * 2 - (p1.answered - p1.correct);
+    let p2s = p2.correct * 2 - (p2.answered - p2.correct);
+    return p2s - p1s;
   }
 
-  incrementQuantity(product) {
-    product.qtySold += 1;
+  totalQues() {
+    return this.players.reduce((acc, curr) => acc + curr.answered, 0);
   }
-  add() {
-    if (
-      this.newProduct.id &&
-      this.newProduct.brand &&
-      this.newProduct.price > 0
-    ) {
-      this.products.push({ ...this.newProduct });
-      this.newProduct = { id: "", brand: "", price: 0, qtySold: 0 };
-    }
+  correctAns() {
+    return this.players.reduce((acc, curr) => acc + curr.correct, 0);
   }
 }

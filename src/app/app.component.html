@@ -1,46 +1,37 @@
 <div class="container m-3">
-  <label>Id</label><br />
-  <input type="text" [(ngModel)]="newProduct.id" /><br />
-  <label>Brand</label><br />
-  <input type="text" [(ngModel)]="newProduct.brand" /><br />
-  <label>Price</label><br />
-  <input type="number" [(ngModel)]="newProduct.price" /><br />
-  <button (click)="add()">Add Product</button>
-  <div class="product-data">
-    <h2>Product Data</h2>
-    <table border="1">
-      <tr>
-        <th>Id</th>
-        <th>Brand</th>
-        <th>Price</th>
-        <th>Qty</th>
-        <th>Value</th>
-        <th></th>
-      </tr>
-      <tr *ngFor="let product of products">
-        <td>{{ product.id }}</td>
-        <td>{{ product.brand }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.qtySold }}</td>
-        <td>{{ product.price * product.qtySold }}</td>
-        <td>
-          <span
-            (click)="resetQuantity(product)"
-            class="col-1 material-symbols-outlined"
-          >
-            close
-          </span>
-          <span
-            (click)="incrementQuantity(product)"
-            class="col-1 material-symbols-outlined"
-          >
-            check
-          </span>
-        </td>
-      </tr>
-    </table>
-    <p style="color: blue">Number of Products: {{ products.length }}</p>
-    <p style="color: blue">Total Quantity Sold: {{ getTotalQuantitySold() }}</p>
-    <p style="color: blue">Total Sales Value: {{ getTotalSalesValue() }}</p>
+  <h4>Welcome to the Quiz Contest</h4>
+  <!-- <div class="row bg-dark text-white text-center">
+    <div class="col-4 border">Name</div>
+    <div class="col-2 border">Answered</div>
+    <div class="col-2 border">Correct</div>
+    <div class="col-4 border">Score</div>
+  </div> -->
+  <div class="row text-center bg-warning">
+    <div class="col-2 border" *ngFor="let player of players">
+      <h5>{{ player.name }}</h5>
+
+      Answered:{{ player.answered }}<br />
+      Correct:{{ player.correct }} <br />
+      Score:{{ player.correct * 2 - (player.answered - player.correct) }}
+    </div>
+  </div>
+  <div class="row bg-light text-center">
+    <div class="col-6 border">
+      <h5>Leader Board</h5>
+      1. {{ getPlayer(1).name }} <br />
+      2. {{ getPlayer(2).name }} <br />
+      3. {{ getPlayer(3).name }}<br />
+    </div>
+    <div class="col-6 border">
+      <h5>Statistics</h5>
+      Total Qns:{{ totalQues() }} <br />
+      Correct Ans: {{ correctAns() }} <br />
+      Incorrect Ans:{{ totalQues() - correctAns() }} <br />
+    </div>
+  </div>
+  <div class="row text-center border p-3">
+    <div class="col-12">
+      <button class="btn btn-primary">Update Score</button>
+    </div>
   </div>
 </div>
