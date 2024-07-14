@@ -1,5 +1,17 @@
 <div class="container m-2">
-  <button class="btn-primary m-1" (click)="makeTrue()">True</button>
-  <button class="btn-primary m-1" (click)="makeFalse()">False</button>
-  <p *ngIf="check">This content is visible only when check=true</p>
+  <button class="btn-primary m-1" (click)="setV1(true)">V1 True</button>
+  <button class="btn-primary m-1" (click)="setV1(false)">V1 False</button>
+  <button class="btn-primary m-1" (click)="setV2(true)">V2 True</button>
+  <button class="btn-primary m-1" (click)="setV2(false)">V2 False</button>
+  <div *ngIf="values">
+    <p>v1: {{ v1 }}</p>
+    <p>v2: {{ v2 }}</p>
+  </div>
+</div>
+<div id="values">
+  <p>v1: {{ v1 }}</p>
+  <p>v2: {{ v2 }}</p>
+</div>
+<div id="message">
+  {{ message }}
 </div>
