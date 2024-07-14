@@ -1,37 +1,38 @@
 <div class="container m-3">
-  <h4>Welcome to the Quiz Contest</h4>
-  <!-- <div class="row bg-dark text-white text-center">
-    <div class="col-4 border">Name</div>
-    <div class="col-2 border">Answered</div>
-    <div class="col-2 border">Correct</div>
-    <div class="col-4 border">Score</div>
-  </div> -->
-  <div class="row text-center bg-warning">
-    <div class="col-2 border" *ngFor="let player of players">
-      <h5>{{ player.name }}</h5>
-
-      Answered:{{ player.answered }}<br />
-      Correct:{{ player.correct }} <br />
-      Score:{{ player.correct * 2 - (player.answered - player.correct) }}
-    </div>
+  <h4>Welcome to the Employee Portal</h4>
+  <div class="row bg-dark text-white text-center">
+    <div class="col-3 border">Name</div>
+    <div class="col-2 border">Level</div>
+    <div class="col-2 border">Dept</div>
+    <div class="col-3 border">Designation</div>
+    <div class="col-2 border">Salary</div>
   </div>
-  <div class="row bg-light text-center">
-    <div class="col-6 border">
-      <h5>Leader Board</h5>
-      1. {{ getPlayer(1).name }} <br />
-      2. {{ getPlayer(2).name }} <br />
-      3. {{ getPlayer(3).name }}<br />
-    </div>
-    <div class="col-6 border">
-      <h5>Statistics</h5>
-      Total Qns:{{ totalQues() }} <br />
-      Correct Ans: {{ correctAns() }} <br />
-      Incorrect Ans:{{ totalQues() - correctAns() }} <br />
-    </div>
+  <div class="row" *ngFor="let employee of employees">
+    <div class="col-4 text-center border">{{ employee.name }}</div>
+    <div class="col-2 text-center border">{{ employee.level }}</div>
+    <div class="col-2 text-center border">{{ employee.dept }}</div>
+    <div class="col-2 text-center border">{{ employee.designation }}</div>
+    <div class="col-2 text-center border">{{ employee.salary }}</div>
   </div>
-  <div class="row text-center border p-3">
-    <div class="col-12">
-      <button class="btn btn-primary">Update Score</button>
-    </div>
+</div>
+<div class="row bg-light text-center">
+  <div class="col-6 border bg-warning">
+    <h5>Employee Details</h5>
+    Number of employees: {{ getNumberOfEmployees() }} <br />
+    Tech:{{ getDeptCount("Tech") }} <br />
+    fin: {{ getDeptCount("Fin") }} <br />
+    Ops: {{ getDeptCount("Ops") }} <br />
+  </div>
+  <div class="col-6 border bg-warning">
+    <h5>Salary Details</h5>
+    Total Salary: {{ getTotalSalary() }} <br />
+    Avarage Salary: {{ getAverageSalary() }} <br />
+    Min Salary: {{ getMinSalary() }}<br />
+    Max Salary: {{ getMaxSalary() }}<br />
+  </div>
+</div>
+<div class="row text-center border p-3">
+  <div class="col-12">
+    <button class="btn btn-primary">Click for more Details</button>
   </div>
 </div>

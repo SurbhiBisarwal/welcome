@@ -6,29 +6,97 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  players = [
-    { name: "Jack", answered: 10, correct: 8 },
-    { name: "Steve", answered: 8, correct: 7 },
-    { name: "William", answered: 12, correct: 9 },
-    { name: "Kathy", answered: 11, correct: 10 },
+  employees = [
+    {
+      name: "JackSmith",
+      level: 2,
+      dept: "Tech",
+      designation: "Manager",
+      salary: 24000,
+    },
+    {
+      name: "MaryRobbins",
+      level: 3,
+      dept: "Fin",
+      designation: "Manager",
+      salary: 28000,
+    },
+    {
+      name: "SteveWilliams",
+      level: 4,
+      dept: "Ops",
+      designation: "President",
+      salary: 35000,
+    },
+    {
+      name: "BobAndrews",
+      level: 1,
+      dept: "Fin",
+      designation: "Trainee",
+      salary: 16500,
+    },
+    {
+      name: "DaveMartin",
+      level: 2,
+      dept: "Fin",
+      designation: "Manager",
+      salary: 21700,
+    },
+    {
+      name: "JuliaClarke",
+      level: 3,
+      dept: "Ops",
+      designation: "Manager",
+      salary: 26900,
+    },
+    {
+      name: "KathyJones",
+      level: 4,
+      dept: "Tech",
+      designation: "President",
+      salary: 42500,
+    },
+    {
+      name: "TomBresnan",
+      level: 2,
+      dept: "Tech",
+      designation: "Manager",
+      salary: 22200,
+    },
   ];
 
-  getPlayer(position: number) {
-    let sortPlayers = [...this.players];
-    sortPlayers.sort(this.sortScore);
-    return sortPlayers[position - 1];
+  getNumberOfEmployees(): number {
+    return this.employees.length;
   }
 
-  sortScore(p1, p2) {
-    let p1s = p1.correct * 2 - (p1.answered - p1.correct);
-    let p2s = p2.correct * 2 - (p2.answered - p2.correct);
-    return p2s - p1s;
+  // Get employee count per department
+  getDeptCount(dept: string): number {
+    return this.employees.filter((emp) => emp.dept === dept).length;
   }
 
-  totalQues() {
-    return this.players.reduce((acc, curr) => acc + curr.answered, 0);
+  // Calculate total salary
+  getTotalSalary(): number {
+    return this.employees.reduce((total, emp) => total + emp.salary, 0);
   }
-  correctAns() {
-    return this.players.reduce((acc, curr) => acc + curr.correct, 0);
+
+  // Calculate average salary
+  getAverageSalary(): number {
+    const totalSalary = this.getTotalSalary();
+    return totalSalary / this.employees.length;
+  }
+
+  // Get minimum salary
+  getMinSalary(): number {
+    return Math.min(...this.employees.map((emp) => emp.salary));
+  }
+
+  // Get maximum salary
+  getMaxSalary(): number {
+    return Math.max(...this.employees.map((emp) => emp.salary));
+  }
+
+  // Optional: Example button functionality
+  showMoreDetails() {
+    console.log("More details button clicked");
   }
 }
