@@ -1,8 +1,36 @@
 <div class="container m-2">
-  <button class="btn-primary m-1" (click)="add()">Increase</button>
-  <button class="btn-primary m-1" (click)="sub()">decrease</button>
-  <p>x={{ x }}</p>
-  <p *ngIf="x == 0">x is Zero</p>
-  <p *ngIf="x > 0">x is Positive</p>
-  <p *ngIf="x < 0">x is Negative</p>
+  <p>
+    Task A:
+    <button class="btn-primary m-1" (click)="setA('pass')">Pass</button>
+    <button class="btn-primary m-1" (click)="setA('fail')">Fail</button>
+  </p>
+  <p>
+    Task B:
+    <button class="btn-primary m-1" (click)="setB('pass')">Pass</button>
+    <button class="btn-primary m-1" (click)="setB('fail')">Fail</button>
+  </p>
+  <h5>Jhon's Performance</h5>
+  <div>Task A:{{ resultOfA }}</div>
+  <div>Task B:{{ resultOfB }}</div>
+  <div
+    class="text-success"
+    *ngIf="this.resultOfA == 'pass' && this.resultOfB == 'pass'"
+  >
+    Grade A : Excellent
+  </div>
+  <div
+    class="text-primary"
+    *ngIf="
+      (this.resultOfA == 'pass' && this.resultOfB == 'fail') ||
+      (this.resultOfA == 'fail' && this.resultOfB == 'pass')
+    "
+  >
+    Grade B : Good Boy
+  </div>
+  <div
+    class="text-danger"
+    *ngIf="this.resultOfA == 'fail' && this.resultOfB == 'fail'"
+  >
+    Grade C : Surbhi need Improvement
+  </div>
 </div>

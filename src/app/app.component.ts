@@ -6,11 +6,14 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  x: number = 0;
-  add(): void {
-    this.x++;
+  resultOfA: string = "pass";
+  resultOfB: string = "pass";
+  setA(value: string): void {
+    this.resultOfA = value;
+    console.log(this.resultOfA);
   }
-  sub(): void {
-    this.x--;
+  setB(value: string): void {
+    this.resultOfB = value;
+    console.log(this.resultOfB);
   }
 }
