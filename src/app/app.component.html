@@ -1,36 +1,8 @@
 <div class="container m-2">
-  <p>
-    Task A:
-    <button class="btn-primary m-1" (click)="setA('pass')">Pass</button>
-    <button class="btn-primary m-1" (click)="setA('fail')">Fail</button>
-  </p>
-  <p>
-    Task B:
-    <button class="btn-primary m-1" (click)="setB('pass')">Pass</button>
-    <button class="btn-primary m-1" (click)="setB('fail')">Fail</button>
-  </p>
-  <h5>Jhon's Performance</h5>
-  <div>Task A:{{ resultOfA }}</div>
-  <div>Task B:{{ resultOfB }}</div>
   <div
-    class="text-success"
-    *ngIf="this.resultOfA == 'pass' && this.resultOfB == 'pass'"
+    *ngFor="let name of array"
+    [ngClass]="{ 'style-Bob': name === 'Bob', 'style-Steve': name === 'Steve' }"
   >
-    Grade A : Excellent
-  </div>
-  <div
-    class="text-primary"
-    *ngIf="
-      (this.resultOfA == 'pass' && this.resultOfB == 'fail') ||
-      (this.resultOfA == 'fail' && this.resultOfB == 'pass')
-    "
-  >
-    Grade B : Good Boy
-  </div>
-  <div
-    class="text-danger"
-    *ngIf="this.resultOfA == 'fail' && this.resultOfB == 'fail'"
-  >
-    Grade C : Surbhi need Improvement
+    {{ name }}
   </div>
 </div>
