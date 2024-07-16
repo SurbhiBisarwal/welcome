@@ -6,23 +6,25 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  students = [];
-
-  newStudent = { name: "", marks: 0, grade: "" };
-
-  addstu() {
-    this.newStudent.grade = this.getGrade(this.newStudent.marks);
-    this.students.push({ ...this.newStudent });
-    this.newStudent = { name: "", marks: 0, grade: "" };
+  codes: string[] = [];
+  newCode: string[] = [];
+  addCode() {
+    const codeString = this.newCode.join("");
+    if (codeString) {
+      if (this.codes.includes(codeString)) {
+        alert("Code already exists!");
+      } else {
+        this.codes.push(codeString);
+        this.newCode = [];
+      }
+    }
   }
 
-  getGrade(marks: number): string {
-    if (marks >= 85) {
-      return "A";
-    } else if (marks >= 65) {
-      return "B";
-    } else {
-      return "C";
-    }
+  add(value: string): void {
+    this.newCode.push(value);
+  }
+
+  clearCode(): void {
+    this.newCode = [];
   }
 }
