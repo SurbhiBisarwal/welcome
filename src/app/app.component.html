@@ -1,14 +1,23 @@
-<div class="container m-2">
-  <h6>Runs Scored Off the Previous ball</h6>
-  <button class="m-1" (click)="addRun(0)">0</button>
-  <button class="m-1" (click)="addRun(1)">1</button>
-  <button class="m-1" (click)="addRun(2)">2</button>
-  <button class="m-1" (click)="addRun(3)">3</button>
-  <button class="m-1" (click)="addRun(4)">4</button>
-  <button class="m-1" (click)="addRun(6)">6</button>
+<div class="container m-2 border">
+  Name:<br />
+  <input type="text" id="name" [(ngModel)]="newStudent.name" /><br />
 
-  <h6>Runs scored off the last few balls</h6>
-  <div *ngFor="let run of runs">
-    <span [ngClass]="getRunClass(run)">{{ run }}</span>
-  </div>
+  mark:<br /><input
+    type="number"
+    id="marks"
+    [(ngModel)]="newStudent.marks"
+  /><br />
+  <button class="btn-primary m-2" (click)="addstu()">Add</button>
+  <h2>List of students and marks</h2>
+
+  <p
+    *ngFor="let student of students"
+    [ngClass]="{
+      'grade-A': student.grade === 'A',
+      'grade-B': student.grade === 'B',
+      'grade-C': student.grade === 'C'
+    }"
+  >
+    {{ student.name }}, {{ student.marks }}, {{ student.grade }}
+  </p>
 </div>

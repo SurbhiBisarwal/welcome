@@ -6,29 +6,23 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  runs: number[] = [];
+  students = [];
 
-  addRun(run: number): void {
-    this.runs.push(run);
-    console.log(`Runs scored: ${run}`);
+  newStudent = { name: "", marks: 0, grade: "" };
+
+  addstu() {
+    this.newStudent.grade = this.getGrade(this.newStudent.marks);
+    this.students.push({ ...this.newStudent });
+    this.newStudent = { name: "", marks: 0, grade: "" };
   }
 
-  getRunClass(run: number): string {
-    switch (run) {
-      case 0:
-        return "zero-run";
-      case 1:
-        return "one-run";
-      case 2:
-        return "two-run";
-      case 3:
-        return "three-run";
-      case 4:
-        return "four-run";
-      case 6:
-        return "six-run";
-      default:
-        return "";
+  getGrade(marks: number): string {
+    if (marks >= 85) {
+      return "A";
+    } else if (marks >= 65) {
+      return "B";
+    } else {
+      return "C";
     }
   }
 }

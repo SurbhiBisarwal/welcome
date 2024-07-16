@@ -1,24 +1,12 @@
-.zero-run {
-  font-weight: bold;
-  color: grey;
+/* styles.css */
+.grade-A {
+  background-color: #90ee90; /* Light green */
 }
-.one-run {
-  color: blue;
-  font-weight: bold;
+
+.grade-B {
+  background-color: #add8e6; /* Light blue */
 }
-.two-run {
-  color: green;
-  font-weight: bold;
-}
-.three-run {
-  color: orange;
-  font-weight: bold;
-}
-.four-run {
-  font-weight: bold;
-  color: red;
-}
-.six-run {
-  color: purple;
-  font-weight: bold;
+
+.grade-C {
+  background-color: #ffcccb; /* Light red */
 }
