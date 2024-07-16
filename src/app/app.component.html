@@ -1,8 +1,14 @@
 <div class="container m-2">
-  <div
-    *ngFor="let name of array"
-    [ngClass]="{ 'style-Bob': name === 'Bob', 'style-Steve': name === 'Steve' }"
-  >
-    {{ name }}
+  <h6>Runs Scored Off the Previous ball</h6>
+  <button class="m-1" (click)="addRun(0)">0</button>
+  <button class="m-1" (click)="addRun(1)">1</button>
+  <button class="m-1" (click)="addRun(2)">2</button>
+  <button class="m-1" (click)="addRun(3)">3</button>
+  <button class="m-1" (click)="addRun(4)">4</button>
+  <button class="m-1" (click)="addRun(6)">6</button>
+
+  <h6>Runs scored off the last few balls</h6>
+  <div *ngFor="let run of runs">
+    <span [ngClass]="getRunClass(run)">{{ run }}</span>
   </div>
 </div>
