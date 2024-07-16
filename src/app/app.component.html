@@ -1,17 +1,78 @@
-<div class="container m-2 border">
-  <h1>Create New Code</h1>
-  <br />
-  <h3>Code so far:</h3>
-  <div>
-    {{ newCode.join("") }}
+<div class="container m-2"><h2>Create New Code</h2></div>
+<div *ngIf="showMainPage" class="three-button-view">
+  <button class="btn btn-primary m-3" (click)="codePattern('ab')">
+    Code:ABC123
+  </button>
+  <button class="btn btn-primary m-3" (click)="codePattern('09')">
+    Code:0-9
+  </button>
+  <button class="btn btn-primary m-3" (click)="codePattern('mn')">
+    Code:MN012</button
+  ><br />
+</div>
+<div *ngIf="!showMainPage" class="parent">
+  <div *ngIf="showAB" class="child">
+    <h6>Code Type:{{ codeType }}</h6>
+    <h4>
+      Code So Far:
+      <h6>{{ newCode.join("") }}</h6>
+    </h4>
+    <br />
+    <button class="btn btn-warning m-2" (click)="add('A')">A</button>
+    <button class="btn btn-warning m-2" (click)="add('B')">B</button>
+    <button class="btn btn-warning m-2" (click)="add('C')">C</button>
+    <button class="btn btn-warning m-2" (click)="add('1')">1</button>
+    <button class="btn btn-warning m-2" (click)="add('2')">2</button>
+    <button class="btn btn-warning m-2" (click)="add('3')">3</button>
+    <div>
+      <button class="btn btn-primary m-3" (click)="addCode()">
+        Add New Code
+      </button>
+      <button class="btn btn-primary m-3" (click)="clearCode()">
+        Clear Code
+      </button>
+    </div>
   </div>
+  <div *ngIf="show19" class="child">
+    <h6>Code Type:{{ codeType }}</h6>
+    <h4>
+      Code So Far:
+      <h6>{{ newCode.join("") }}</h6>
+    </h4>
+    <br />
+    <button class="btn btn-warning m-2" (click)="add('0')">0</button>
+    <button class="btn btn-warning m-2" (click)="add('1')">1</button>
+    <button class="btn btn-warning m-2" (click)="add('2')">2</button>
+    <button class="btn btn-warning m-2" (click)="add('3')">3</button>
+    <button class="btn btn-warning m-2" (click)="add('4')">4</button>
+    <button class="btn btn-warning m-2" (click)="add('5')">5</button>
+    <button class="btn btn-warning m-2" (click)="add('6')">6</button>
+    <button class="btn btn-warning m-2" (click)="add('7')">7</button>
+    <button class="btn btn-warning m-2" (click)="add('8')">8</button>
+    <button class="btn btn-warning m-2" (click)="add('9')">9</button>
+
+    <div>
+      <button class="btn btn-primary m-3" (click)="addCode()">
+        Add New Code
+      </button>
+      <button class="btn btn-primary m-3" (click)="clearCode()">
+        Clear Code
+      </button>
+    </div>
+  </div>
+</div>
+<div *ngIf="showMN" class="child">
+  <h6>Code Type:{{ codeType }}</h6>
+  <h4>
+    Code So Far:
+    <h6>{{ newCode.join("") }}</h6>
+  </h4>
   <br />
-  <button class="btn btn-warning m-2" (click)="add('A')">A</button>
-  <button class="btn btn-warning m-2" (click)="add('B')">B</button>
-  <button class="btn btn-warning m-2" (click)="add('C')">C</button>
+  <button class="btn btn-warning m-2" (click)="add('M')">M</button>
+  <button class="btn btn-warning m-2" (click)="add('N')">N</button>
+  <button class="btn btn-warning m-2" (click)="add('0')">0</button>
   <button class="btn btn-warning m-2" (click)="add('1')">1</button>
   <button class="btn btn-warning m-2" (click)="add('2')">2</button>
-  <button class="btn btn-warning m-2" (click)="add('3')">3</button>
   <div>
     <button class="btn btn-primary m-3" (click)="addCode()">
       Add New Code
@@ -20,12 +81,12 @@
       Clear Code
     </button>
   </div>
-  <div>
-    <h4>List of Codes Created</h4>
-    <ul>
-      <li *ngFor="let code of codes">
-        {{ code }}
-      </li>
-    </ul>
-  </div>
+</div>
+<div>
+  <h4>List of Codes Created</h4>
+  <ul>
+    <li *ngFor="let code of codes">
+      {{ code }}
+    </li>
+  </ul>
 </div>
