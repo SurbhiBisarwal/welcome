@@ -5,9 +5,10 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { MoviecardComponent } from "./moviecard/moviecard.component";
+import { SongsComponent } from './songs/songs.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviecardComponent],
+  declarations: [AppComponent, MoviecardComponent, SongsComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],

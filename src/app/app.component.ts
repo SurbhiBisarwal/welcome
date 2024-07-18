@@ -1,6 +1,7 @@
 import { Component } from "@angular/core";
-import { Movie } from "./movie";
-import { moviedb } from "./movie";
+import { Song } from "./songs";
+
+import { songsdb } from "./songs";
 
 @Component({
   selector: "app-root",
@@ -8,5 +9,5 @@ import { moviedb } from "./movie";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  movies: Movie[] = moviedb;
+  songs: Song[] = songsdb;
 }
