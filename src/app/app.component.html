@@ -1,5 +1,7 @@
-<div>
-  <div *ngFor="let m1 of movies">
-    <app-moviecard [movie]="m1"></app-moviecard>
+<div class="container bg-light border">
+  <div class="row">
+    <div class="col-4 p-10" *ngFor="let m1 of movies">
+      <app-moviecard [movie]="m1"></app-moviecard>
+    </div>
   </div>
 </div>

@@ -1,6 +1,10 @@
-<p>
-  Name:{{ movie.name }} Release Date:{{ movie.release }} Rating:{{
-    movie.rating
-  }}
-  No. of reviews:{{ movie.reviews }}
-</p>
+<div>
+  <img class="img-fluid" src="{{ movie.image }}" />
+  <div class="row">
+    <div class="col-10 text-left small">{{ movie.release }}</div>
+    <div class="col-2 text-left small">{{ movie.reviews }}</div>
+  </div>
+  <div class="row">
+    <div class="col text-center text-truncate">{{ movie.name }}</div>
+  </div>
+</div>
