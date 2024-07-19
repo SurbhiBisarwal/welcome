@@ -1,7 +1,12 @@
 <div class="container">
   <div class="row">
-    <div class="col-4" *ngFor="let m1 of songs">
-      <app-songs [songs]="m1"></app-songs>
+    <div class="col-3 border" *ngFor="let c1 of comps">
+      <app-competition
+        [comp]="c1"
+        (compChanged)="newChanges($event)"
+      ></app-competition>
     </div>
   </div>
+  <h5>Leading:{{ leading }}</h5>
+  <h5 *ngIf="lastChange">Last Change:{{ lastChange }}</h5>
 </div>

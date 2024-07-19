@@ -6,9 +6,10 @@ import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
 import { MoviecardComponent } from "./moviecard/moviecard.component";
 import { SongsComponent } from './songs/songs.component';
+import { CompetitionComponent } from './competition/competition.component';
 
 @NgModule({
-  declarations: [AppComponent, MoviecardComponent, SongsComponent],
+  declarations: [AppComponent, MoviecardComponent, SongsComponent, CompetitionComponent],
   imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [],
   bootstrap: [AppComponent],
