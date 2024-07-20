@@ -1,12 +1,10 @@
-<div class="container">
-  <div class="row">
-    <div class="col-3 border" *ngFor="let c1 of comps">
-      <app-competition
-        [comp]="c1"
-        (compChanged)="newChanges($event)"
-      ></app-competition>
-    </div>
+<div class="text-center"><h2>Message System</h2></div>
+<div class="row container border text-center">
+  <div class="col-6">
+    <app-students (messageEvent)="receiveMessage($event)"></app-students>
   </div>
-  <h5>Leading:{{ leading }}</h5>
-  <h5 *ngIf="lastChange">Last Change:{{ lastChange }}</h5>
+  <div class="col-6">
+    <h5>Faculty</h5>
+    <p>{{ receivedMessage }}</p>
+  </div>
 </div>
