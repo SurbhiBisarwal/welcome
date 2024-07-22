@@ -1,0 +1,17 @@
+<div class="panel panel-default bg bg-light">
+  <div class="panel-heading"><h6>Options</h6></div>
+  <div class="panel-body">
+    <div class="form-group">
+      <select
+        class="form-control"
+        id="category"
+        (change)="emitSelectedValue($event)"
+      >
+        <option selected value="None"></option>
+        <option *ngFor="let category of categories">
+          {{ category }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

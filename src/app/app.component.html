@@ -1,9 +1,32 @@
-<h4>App component</h4>
+<h2 style="text-align: center">Store Managment</h2>
 <div class="row">
-  <app-GetProduct [productArr]="products" (selectedValue)="xyz($event)">
-  </app-GetProduct>
-  <div class="col-6" style="background-color: grey">
-    Current Selection:{{ selectedProducts }}<br />
-    Selection Count: {{ selectionCount }}
+  <div class="col-3">
+    <app-store-management
+      (selectedValue)="onCategoryChange($event)"
+      [categories]="categories"
+    ></app-store-management>
+  </div>
+  <div class="col-9">
+    <table class="table">
+      <thead>
+        <h5 style="text-align: center">List Of Product</h5>
+        <tr>
+          <th class="header">Product Name</th>
+          <th class="header">Category</th>
+          <th class="header">Stock</th>
+          <th class="header">Price</th>
+          <th class="header">Sale</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of filteredProducts">
+          <td>{{ product.name }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.stock }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.sales }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>
