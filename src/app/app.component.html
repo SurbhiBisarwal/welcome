@@ -1,32 +1,15 @@
-<h2 style="text-align: center">Store Managment</h2>
-<div class="row">
-  <div class="col-3">
-    <app-store-management
-      (selectedValue)="onCategoryChange($event)"
-      [categories]="categories"
-    ></app-store-management>
+<div class="container bg-light border">
+  <h2 style="text-align: center">Books in a Library</h2>
+  <div class="row">
+    <div class="col-6" *ngFor="let b1 of books">
+      <app-books [Books]="b1" (issueBook)="reserveBook($event)"></app-books>
+    </div>
   </div>
-  <div class="col-9">
-    <table class="table">
-      <thead>
-        <h5 style="text-align: center">List Of Product</h5>
-        <tr>
-          <th class="header">Product Name</th>
-          <th class="header">Category</th>
-          <th class="header">Stock</th>
-          <th class="header">Price</th>
-          <th class="header">Sale</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let product of filteredProducts">
-          <td>{{ product.name }}</td>
-          <td>{{ product.category }}</td>
-          <td>{{ product.stock }}</td>
-          <td>{{ product.price }}</td>
-          <td>{{ product.sales }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+</div>
+<div>
+  <h4 style="padding: 30px">Issued Books</h4>
+  <p *ngIf="reservedBook.length == 0">No books to show</p>
+  <ul *ngIf="reservedBook.length > 0">
+    <li *ngFor="let item of reservedBook">{{ item }}</li>
+  </ul>
 </div>
