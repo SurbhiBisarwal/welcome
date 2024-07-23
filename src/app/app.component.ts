@@ -28,6 +28,7 @@ export class AppComponent {
       const returnedBook = booksdb.find((book) => book.name === item);
       if (returnedBook) {
         this.books.push(returnedBook);
+
         console.log("Books after return:", this.books);
       }
     }
