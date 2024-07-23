@@ -8,7 +8,7 @@ import { booksdb } from "./Books";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  books: Book[] = booksdb;
+  books: Book[] = booksdb.slice(); // Create a copy of booksdb for return function
 
   reservedBook: string[] = [];
 
@@ -17,5 +17,19 @@ export class AppComponent {
     this.books.splice(index, 1);
     this.reservedBook.push(book.name);
     console.log(this.reservedBook);
+  }
+
+  returnReservedBook(item: string) {
+    const index = this.reservedBook.findIndex((name) => name === item);
+    console.log("Return book name:", item);
+    console.log("Reserved book index:", index);
+    if (index !== -1) {
+      this.reservedBook.splice(index, 1);
+      const returnedBook = booksdb.find((book) => book.name === item);
+      if (returnedBook) {
+        this.books.push(returnedBook);
+        console.log("Books after return:", this.books);
+      }
+    }
   }
 }

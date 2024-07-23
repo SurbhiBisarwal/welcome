@@ -18,4 +18,19 @@ export class BooksComponent implements OnInit {
     // console.log(this.Books);
     // this.Books = "";
   }
+  descriptionLimit: number = 100; // Limit for truncated description
+  showMore: boolean = false; // Toggle state
+
+  description() {
+    this.showMore = !this.showMore; // Toggle between showing more or less
+  }
+  get displayDescription(): string {
+    if (
+      this.showMore ||
+      this.Books.description.length <= this.descriptionLimit
+    ) {
+      return this.Books.description;
+    }
+    return this.Books.description.substring(0, this.descriptionLimit) + "...";
+  }
 }
