@@ -1,31 +1,21 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Library Management</span>
-    <div class="d-flex">
-      <span class="navbar-text mx-2">Total Books: {{ books.length }}</span>
-      <span class="navbar-text mx-2"
-        >Books Issued: {{ reservedBook.length }}</span
-      >
+<div class="container">
+  <div class="row m-1">
+    <div class="col">
+      <input type="checkbox" [(ngModel)]="working" />
+      <label>Are you working</label>
     </div>
   </div>
-</nav>
-<div class="container bg-light border">
-  <h2 style="text-align: center">Books in a Library</h2>
-  <div class="row">
-    <div class="col-3" *ngFor="let b1 of books">
-      <app-books [Books]="b1" (issueBook)="reserveBook($event)"></app-books>
+  <div class="row m-1">
+    <div class="col-6">
+      <input type="radio" value="Male" [(ngModel)]="gender" />
+      <label>Male</label>
+    </div>
+    <div class="col-6">
+      <input type="radio" value="Female" [(ngModel)]="gender" />
+      <label>Female</label>
     </div>
   </div>
-</div>
-<div>
-  <h4 style="padding: 30px">Issued Books</h4>
-  <p *ngIf="reservedBook.length == 0">No books to show</p>
-  <ul *ngIf="reservedBook.length > 0">
-    <li *ngFor="let item of reservedBook">
-      {{ item }}
-      <button class="badge badge-primary" (click)="returnReservedBook(item)">
-        Return
-      </button>
-    </li>
-  </ul>
+  <hr />
+  Working: {{ working }}<br />
+  Gender: {{ gender }}
 </div>
