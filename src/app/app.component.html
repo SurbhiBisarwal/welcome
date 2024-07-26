@@ -1,47 +1,11 @@
 <div class="container">
-  <h3>Provide Details Below</h3>
-  <label>
-    <input
-      type="checkbox"
-      name="status"
-      value="working"
-      (change)="onStatusChange($event)"
-      [checked]="working"
-    />
-    Working </label
-  ><br />
-  <label>
-    <input
-      type="checkbox"
-      name="status"
-      value="studying"
-      (change)="onStatusChange($event)"
-      [checked]="studying"
-    />
-    Studying
-  </label>
-</div>
-
-<div *ngIf="working">
-  <h5>Provide Job Details</h5>
-  <label>
-    Company Name:
-    <input type="text" [(ngModel)]="companyName" />
-  </label>
-  <label>
-    Designation:
-    <input type="text" [(ngModel)]="designation" />
-  </label>
-</div>
-
-<div *ngIf="studying">
-  <h5>Provide Course Details</h5>
-  <label>
-    College Name:
-    <input type="text" [(ngModel)]="collegeName" />
-  </label>
-  <label>
-    Course:
-    <input type="text" [(ngModel)]="course" />
-  </label>
+  <label>Course:</label>
+  <select class="form-control" [(ngModel)]="course">
+    <option value="">choose course...</option>
+    <option value="NG103">Angular</option>
+    <option>Java</option>
+    <option>Python</option>
+  </select>
+  <hr />
+  course selected : {{ course }}
 </div>
