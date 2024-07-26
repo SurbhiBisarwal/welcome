@@ -1,21 +1,47 @@
 <div class="container">
-  <div class="row m-1">
-    <div class="col">
-      <input type="checkbox" [(ngModel)]="working" />
-      <label>Are you working</label>
-    </div>
-  </div>
-  <div class="row m-1">
-    <div class="col-6">
-      <input type="radio" value="Male" [(ngModel)]="gender" />
-      <label>Male</label>
-    </div>
-    <div class="col-6">
-      <input type="radio" value="Female" [(ngModel)]="gender" />
-      <label>Female</label>
-    </div>
-  </div>
-  <hr />
-  Working: {{ working }}<br />
-  Gender: {{ gender }}
+  <h3>Provide Details Below</h3>
+  <label>
+    <input
+      type="checkbox"
+      name="status"
+      value="working"
+      (change)="onStatusChange($event)"
+      [checked]="working"
+    />
+    Working </label
+  ><br />
+  <label>
+    <input
+      type="checkbox"
+      name="status"
+      value="studying"
+      (change)="onStatusChange($event)"
+      [checked]="studying"
+    />
+    Studying
+  </label>
+</div>
+
+<div *ngIf="working">
+  <h5>Provide Job Details</h5>
+  <label>
+    Company Name:
+    <input type="text" [(ngModel)]="companyName" />
+  </label>
+  <label>
+    Designation:
+    <input type="text" [(ngModel)]="designation" />
+  </label>
+</div>
+
+<div *ngIf="studying">
+  <h5>Provide Course Details</h5>
+  <label>
+    College Name:
+    <input type="text" [(ngModel)]="collegeName" />
+  </label>
+  <label>
+    Course:
+    <input type="text" [(ngModel)]="course" />
+  </label>
 </div>
