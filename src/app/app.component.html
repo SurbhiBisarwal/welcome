@@ -1,9 +1,27 @@
 <div class="container">
-  <label>Course:</label>
-  <select class="form-control" [(ngModel)]="course">
-    <option value="">Choose course...</option>
-    <option *ngFor="let c1 of courses">{{ c1 }}</option>
-  </select>
+  <h4>Configure The Dropdown</h4>
+  <div>
+    <label>Starting Year:</label><br />
+    <input type="number" [(ngModel)]="startingYear" style="width: 100%" /><br />
+    <label>Number of Years:</label><br />
+    <input
+      type="number"
+      [(ngModel)]="numberOfYears"
+      style="width: 100%"
+    /><br />
+    <button class="btn btn-primary m-1" (click)="configureYears()">
+      Configure
+    </button>
+    <div>
+      <label>Select the Year:</label><br />
+      <select class="form-control" [(ngModel)]="selectedYear">
+        <option value="1">Choose year</option>
+        <option *ngFor="let year of years" [value]="year">
+          {{ year }}
+        </option>
+      </select>
+    </div>
+  </div>
   <hr />
-  Course Selected:{{ course }}
+  Year of Joining={{ selectedYear }}
 </div>

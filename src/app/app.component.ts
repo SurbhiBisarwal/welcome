@@ -6,6 +6,15 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  course: string;
-  courses: string[] = ["Angular", "Android", "Spring Boot", "Java"];
+  startingYear: number;
+  numberOfYears: number;
+  years: number[] = [];
+  selectedYear: number;
+
+  configureYears() {
+    this.years = [];
+    for (let i = 0; i < this.numberOfYears; i++) {
+      this.years.push(this.startingYear + i);
+    }
+  }
 }
