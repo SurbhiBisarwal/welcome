@@ -1,11 +1,38 @@
 <div class="container">
-  <label>Course:</label>
-  <select class="form-control" [(ngModel)]="course">
-    <option value="">choose course...</option>
-    <option value="NG103">Angular</option>
-    <option>Java</option>
-    <option>Python</option>
-  </select>
+  <div class="row">
+    <div class="col-6">
+      <label>Year Of Joining:</label>
+      <select
+        class="form-control"
+        [(ngModel)]="joinYear"
+        (ngModelChange)="experience()"
+      >
+        <option value="">Choose year of Joining</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+      </select>
+    </div>
+    <div class="col-6">
+      <label>Year Of Leaving:</label>
+      <select
+        class="form-control"
+        [(ngModel)]="leaveYear"
+        (ngModelChange)="experience()"
+      >
+        <option value="">Choose year of Leaving</option>
+        <option>2015</option>
+        <option>2016</option>
+        <option>2017</option>
+        <option>2018</option>
+        <option>2019</option>
+      </select>
+    </div>
+  </div>
   <hr />
-  course selected : {{ course }}
+  Year Of Joining : {{ joinYear }} <br />
+  Year Of Leaving: {{ leaveYear }}<br />
+  Number of Year: {{ totalYear }}
 </div>

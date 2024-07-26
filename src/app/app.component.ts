@@ -6,5 +6,11 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  course: string = " ";
+  joinYear: number;
+  leaveYear: number;
+  totalYear: number;
+
+  experience() {
+    this.totalYear = this.leaveYear - this.joinYear;
+  }
 }
