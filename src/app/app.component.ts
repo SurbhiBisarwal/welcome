@@ -6,7 +6,9 @@ import { FormBuilder, FormGroup } from "@angular/forms";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  event(s: string) {
-    console.log(s);
+  length: number = 0;
+
+  event(value: string) {
+    this.length = value.length;
   }
 }

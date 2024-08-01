@@ -1,10 +1,17 @@
 <div class="container m-2">
+  <label>Name</label><br />
   <input
     type="text"
-    (keyup)="event('keyup')"
-    (change)="event('change')"
-    (focus)="event('focus')"
-    (focusout)="event('focusout')"
-    (mouseenter)="event('mouseenter')"
+    placeholder="minimum 8 characters"
+    (keyup)="event($event.target.value)"
   />
+  <div>
+    <label>Length=</label>
+    {{ length }}
+  </div>
+  <div>
+    <span *ngIf="length < 8 && length > 0" style="color: red"
+      >Minimum length is 8 characters</span
+    >
+  </div>
 </div>
