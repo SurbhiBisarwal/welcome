@@ -1,44 +1,36 @@
-<div class="container m-2">
-  <label>Course: </label>
-  <select
-    class="form-control"
-    [(ngModel)]="course"
-    (mouseenter)="event('dp mouseenter')"
-    (focus)="event('dp focus')"
-    (change)="event('dp change')"
-  >
-    <option *ngFor="let c1 of courses">{{ c1 }}</option>
-  </select>
-</div>
-<div class="row m-1">
-  <div class="col">
+<div class="container m-2 border w-50">
+  <h4 class="text-center">Login</h4>
+  <div>
+    <label>Email id/Username</label><br />
     <input
-      type="checkbox"
-      [(ngModel)]="working"
-      (mouseenter)="event('cb mouseenter')"
-      (focus)="event('cb focus')"
-      (change)="event('cb change')"
+      class="form-control"
+      type="text"
+      placeholder="Enter your active Email Id/Username"
+      [(ngModel)]="email"
+      (focus)="event('focus in')"
+      (focusout)="validateField('email')"
     />
-    <label>Checkbox</label>
-  </div>
-</div>
-<div class="row m-1">
-  <div class="col-6">
+    <div *ngIf="showEmailError" class="text-danger">
+      Please enter your Email Id/Username
+    </div>
+    <br />
+    <label>Password</label><br />
     <input
-      type="radio"
-      value="Option1"
-      [(ngModel)]="options"
-      (change)="event('rd change1')"
+      class="form-control"
+      type="password"
+      placeholder="Enter your Password"
+      [(ngModel)]="password"
+      (focus)="event('p focus in')"
+      (focusout)="validateField('password')"
     />
-    <label>Option 1</label>
-  </div>
-  <div class="col-6">
-    <input
-      type="radio"
-      value="Option2"
-      [(ngModel)]="options"
-      (change)="event('rd change2')"
-    />
-    <label>Option 2</label>
+    <div *ngIf="showPasswordError" class="text-danger">
+      Please enter your password
+    </div>
+    <p style="color: blue">forget password</p>
+    <div class="text-center">
+      <button class="btn btn-primary m-2">Login</button><br />
+      Not a member as yet?
+      <small style="color: blue">Register Now</small>
+    </div>
   </div>
 </div>
