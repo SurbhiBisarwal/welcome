@@ -5,31 +5,30 @@ import { Component } from "@angular/core";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  email: string = "";
-  password: string = "";
-  showEmailError: boolean = false;
-  showPasswordError: boolean = false;
+  courses: string[] = ["All", "Angular", "Python", "Java", "Spring Boot"];
+  students: { name: string; course: string }[] = [
+    { name: "James", course: "Angular" },
+    { name: "Mary", course: "Python" },
+    { name: "Bob", course: "Angular" },
+    { name: "Pam", course: "Android" },
+    { name: "Steve", course: "Angular" },
+    { name: "William", course: "Python" },
+    { name: "Julia", course: "Android" },
+    { name: "Matt", course: "Java" },
+    { name: "Martin", course: "Java" },
+    { name: "Katherine", course: "Angular" },
+    { name: "Nick", course: "Python" },
+    { name: "Tim", course: "Java" },
+  ];
 
-  // Event handling method
-  event(s: string) {
-    console.log(s);
-  }
+  selectedCourse: string = "All";
 
-  // Method to validate fields on focusout
-  validateField(field: string) {
-    if (field === "email") {
-      this.showEmailError = this.email.trim() === "";
-    } else if (field === "password") {
-      this.showPasswordError = this.password.trim() === "";
+  get filteredStudents() {
+    if (this.selectedCourse === "All") {
+      return this.students;
     }
-  }
-
-  // Method to reset error state on focus
-  resetError(field: string) {
-    if (field === "email") {
-      this.showEmailError = false;
-    } else if (field === "password") {
-      this.showPasswordError = false;
-    }
+    return this.students.filter(
+      (student) => student.course === this.selectedCourse
+    );
   }
 }

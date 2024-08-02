@@ -1,36 +1,40 @@
-<div class="container m-2 border w-50">
-  <h4 class="text-center">Login</h4>
-  <div>
-    <label>Email id/Username</label><br />
-    <input
-      class="form-control"
-      type="text"
-      placeholder="Enter your active Email Id/Username"
-      [(ngModel)]="email"
-      (focus)="event('focus in')"
-      (focusout)="validateField('email')"
-    />
-    <div *ngIf="showEmailError" class="text-danger">
-      Please enter your Email Id/Username
+<div
+  class="container m-2 border border-dark"
+  style="background-color: cadetblue"
+>
+  <h4 class="text-center">Edufect Students</h4>
+
+  <div class="row">
+    <div class="form-group col-3">
+      <label for="courseSelect">Select Course</label>
+      <select
+        class="form-control"
+        id="courseSelect"
+        [(ngModel)]="selectedCourse"
+      >
+        <option *ngFor="let course of courses" [value]="course">
+          {{ course }}
+        </option>
+      </select>
     </div>
-    <br />
-    <label>Password</label><br />
-    <input
-      class="form-control"
-      type="password"
-      placeholder="Enter your Password"
-      [(ngModel)]="password"
-      (focus)="event('p focus in')"
-      (focusout)="validateField('password')"
-    />
-    <div *ngIf="showPasswordError" class="text-danger">
-      Please enter your password
-    </div>
-    <p style="color: blue">forget password</p>
-    <div class="text-center">
-      <button class="btn btn-primary m-2">Login</button><br />
-      Not a member as yet?
-      <small style="color: blue">Register Now</small>
+    <div class="col-6">
+      <table class="table table-bordered mt-1">
+        <thead>
+          <tr style="background-color: black; color: aliceblue">
+            <th>Name</th>
+            <th>Course</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            *ngFor="let student of filteredStudents"
+            style="background-color: aquamarine border border-dark"
+          >
+            <td>{{ student.name }}</td>
+            <td>{{ student.course }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>
