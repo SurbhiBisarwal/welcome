@@ -1,17 +1,44 @@
 <div class="container m-2">
-  <label>Name</label><br />
-  <input
-    type="text"
-    placeholder="minimum 8 characters"
-    (keyup)="event($event.target.value)"
-  />
-  <div>
-    <label>Length=</label>
-    {{ length }}
+  <label>Course: </label>
+  <select
+    class="form-control"
+    [(ngModel)]="course"
+    (mouseenter)="event('dp mouseenter')"
+    (focus)="event('dp focus')"
+    (change)="event('dp change')"
+  >
+    <option *ngFor="let c1 of courses">{{ c1 }}</option>
+  </select>
+</div>
+<div class="row m-1">
+  <div class="col">
+    <input
+      type="checkbox"
+      [(ngModel)]="working"
+      (mouseenter)="event('cb mouseenter')"
+      (focus)="event('cb focus')"
+      (change)="event('cb change')"
+    />
+    <label>Checkbox</label>
   </div>
-  <div>
-    <span *ngIf="length < 8 && length > 0" style="color: red"
-      >Minimum length is 8 characters</span
-    >
+</div>
+<div class="row m-1">
+  <div class="col-6">
+    <input
+      type="radio"
+      value="Option1"
+      [(ngModel)]="options"
+      (change)="event('rd change1')"
+    />
+    <label>Option 1</label>
+  </div>
+  <div class="col-6">
+    <input
+      type="radio"
+      value="Option2"
+      [(ngModel)]="options"
+      (change)="event('rd change2')"
+    />
+    <label>Option 2</label>
   </div>
 </div>
