@@ -1,40 +1,12 @@
-<div
-  class="container m-2 border border-dark"
-  style="background-color: cadetblue"
->
-  <h4 class="text-center">Edufect Students</h4>
-
+<div class="container-fluid">
   <div class="row">
-    <div class="form-group col-3">
-      <label for="courseSelect">Select Course</label>
-      <select
-        class="form-control"
-        id="courseSelect"
-        [(ngModel)]="selectedCourse"
-      >
-        <option *ngFor="let course of courses" [value]="course">
-          {{ course }}
-        </option>
-      </select>
+    <div class="col-3 border bg-light">
+      <app-choosenames [namesCB]="namesStructure" (optSel)="optChange($event)">
+      </app-choosenames>
     </div>
-    <div class="col-6">
-      <table class="table table-bordered mt-1">
-        <thead>
-          <tr style="background-color: black; color: aliceblue">
-            <th>Name</th>
-            <th>Course</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            *ngFor="let student of filteredStudents"
-            style="background-color: aquamarine border border-dark"
-          >
-            <td>{{ student.name }}</td>
-            <td>{{ student.course }}</td>
-          </tr>
-        </tbody>
-      </table>
+    <div class="col-9 border">
+      Hello!!<br />
+      Names Selected: {{ namesSelected }}
     </div>
   </div>
 </div>

@@ -1,34 +1,47 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  courses: string[] = ["All", "Angular", "Python", "Java", "Spring Boot"];
-  students: { name: string; course: string }[] = [
-    { name: "James", course: "Angular" },
-    { name: "Mary", course: "Python" },
-    { name: "Bob", course: "Angular" },
-    { name: "Pam", course: "Android" },
-    { name: "Steve", course: "Angular" },
-    { name: "William", course: "Python" },
-    { name: "Julia", course: "Android" },
-    { name: "Matt", course: "Java" },
-    { name: "Martin", course: "Java" },
-    { name: "Katherine", course: "Angular" },
-    { name: "Nick", course: "Python" },
-    { name: "Tim", course: "Java" },
+  names = ["James", "Steve", "William", "kathy", "Edward"];
+  namesIds = [
+    { name: "James", id: "AB455" },
+    { name: "Steve", id: "GM072" },
+    { name: "William", id: "CX499" },
+    { name: "Kathy", id: "MM746" },
+    { name: "Edward", id: "KT108" },
   ];
 
-  selectedCourse: string = "All";
-
-  get filteredStudents() {
-    if (this.selectedCourse === "All") {
-      return this.students;
+  namesStructure = null;
+  namesSelected = "";
+  idSelected = "";
+  ngOnInit() {
+    this.updateValues();
+  }
+  updateValues() {
+    this.namesStructure = this.names.map((n1) => ({
+      name: n1,
+      selected: false,
+    }));
+    let sNames = this.namesSelected.split(",");
+    console.log(sNames);
+    for (let i = 0; i < sNames.length; i++) {
+      let item = this.namesStructure.find((n1) => n1.name === sNames[i]);
+      if (item) item.selected = true;
     }
-    return this.students.filter(
-      (student) => student.course === this.selectedCourse
-    );
+    console.log(this.namesStructure);
+  }
+
+  optChange() {
+    console.log(this.namesStructure);
+    let filteredNames = this.namesStructure.filter((n1) => n1.selected);
+    let arrayNames = filteredNames.map((n1) => n1.name);
+    this.namesSelected = arrayNames.join(",");
+    console.log(this.namesSelected);
+    // let arrayIds = filteredNames.map((n1) => n1.ids);
+    // this.idSelected = arrayIds.join(",");
+    // console.log(this.idSelected);
   }
 }
