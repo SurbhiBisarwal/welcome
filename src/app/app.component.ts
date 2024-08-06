@@ -18,9 +18,19 @@ export class AppComponent {
     { id: "MAG441", name: "Maggi", category: "Food", stock: true },
   ];
 
-  filteredProducts = this.products;
+  //   filteredProducts = this.products;
 
-  onProductSelected(selectedProducts: any[]) {
-    this.filteredProducts = selectedProducts;
+  //   onProductSelected(selectedProducts: any[]) {
+  //     this.filteredProducts = selectedProducts;
+  //   }
+  // }
+
+  filteredProducts = [];
+
+  // This method will be triggered when a category is selected in the child component
+  onCategorySelected(selectedCategory: string[]) {
+    this.filteredProducts = this.products.filter((product) =>
+      selectedCategory.includes(product.category)
+    );
   }
 }

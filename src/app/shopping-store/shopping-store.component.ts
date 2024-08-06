@@ -6,7 +6,7 @@ import { Component, OnInit, Output, EventEmitter } from "@angular/core";
   styleUrls: ["./shopping-store.component.scss"],
 })
 export class ShoppingStoreComponent implements OnInit {
-  @Output() productSelected = new EventEmitter<any[]>();
+  // @Output() productSelected = new EventEmitter<any[]>();
 
   products = [
     { id: "PEP110", name: "Pepsi", category: "Food", stock: true },
@@ -19,15 +19,34 @@ export class ShoppingStoreComponent implements OnInit {
     { id: "PPS613", name: "Pepsodent", category: "Toothpaste", stock: false },
     { id: "MAG441", name: "Maggi", category: "Food", stock: true },
   ];
+  @Output() categorySelected = new EventEmitter<string[]>();
+  categories: string[] = ["Food", "Toothpaste", "Soap"];
 
-  selectedProducts: any[] = [];
+  selectedCategories: string[] = [];
 
   ngOnInit() {}
 
-  onRadioChange(product: any, event: any) {
+  onCheckboxChange(category: string, event: any) {
     if (event.target.checked) {
-      this.selectedProducts = [product]; // Only one product can be selected at a time with radio buttons
+      this.selectedCategories.push(category);
+    } else {
+      const index = this.selectedCategories.indexOf(category);
+      if (index !== -1) {
+        this.selectedCategories.splice(index, 1);
+      }
     }
-    this.productSelected.emit(this.selectedProducts);
+    this.categorySelected.emit(this.selectedCategories);
   }
 }
+
+//   selectedProducts: any[] = [];
+
+//   ngOnInit() {}
+
+//   onRadioChange(product: any, event: any) {
+//     if (event.target.checked) {
+//       this.selectedProducts = [product]; // Only one product can be selected at a time with radio buttons
+//     }
+//     this.productSelected.emit(this.selectedProducts);
+//   }
+// }
