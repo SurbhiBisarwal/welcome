@@ -1,11 +1,13 @@
-import { Component } from "@angular/core";
+import { Component, OnInit, Output, EventEmitter } from "@angular/core";
 
 @Component({
-  selector: "app-root",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"],
+  selector: "app-shopping-store",
+  templateUrl: "./shopping-store.component.html",
+  styleUrls: ["./shopping-store.component.scss"],
 })
-export class AppComponent {
+export class ShoppingStoreComponent implements OnInit {
+  @Output() productSelected = new EventEmitter<any[]>();
+
   products = [
     { id: "PEP110", name: "Pepsi", category: "Food", stock: true },
     { id: "CLO876", name: "Close Up", category: "Toothpaste", stock: false },
@@ -18,9 +20,14 @@ export class AppComponent {
     { id: "MAG441", name: "Maggi", category: "Food", stock: true },
   ];
 
-  filteredProducts = this.products;
+  selectedProducts: any[] = [];
 
-  onProductSelected(selectedProducts: any[]) {
-    this.filteredProducts = selectedProducts;
+  ngOnInit() {}
+
+  onRadioChange(product: any, event: any) {
+    if (event.target.checked) {
+      this.selectedProducts = [product]; // Only one product can be selected at a time with radio buttons
+    }
+    this.productSelected.emit(this.selectedProducts);
   }
 }

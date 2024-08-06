@@ -1,0 +1,11 @@
+<div class="container">
+  <h4>Select Products</h4>
+  <div *ngFor="let product of products">
+    <input
+      type="radio"
+      name="productRadio"
+      (change)="onRadioChange(product, $event)"
+    />
+    {{ product.name }}
+  </div>
+</div>
