@@ -1,36 +1,33 @@
 import { Component } from "@angular/core";
-
+import { NetService } from "./net.service";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  products = [
-    { id: "PEP110", name: "Pepsi", category: "Food", stock: true },
-    { id: "CLO876", name: "Close Up", category: "Toothpaste", stock: false },
-    { id: "PEA531", name: "Pears", category: "Soap", stock: true },
-    { id: "LU7264", name: "Lux", category: "Soap", stock: false },
-    { id: "COL112", name: "Colgate", category: "Toothpaste", stock: true },
-    { id: "DM881", name: "Dairy Milk", category: "Food", stock: false },
-    { id: "LI130", name: "Liril", category: "Soap", stock: true },
-    { id: "PPS613", name: "Pepsodent", category: "Toothpaste", stock: false },
-    { id: "MAG441", name: "Maggi", category: "Food", stock: true },
-  ];
+  arr: string[] = ["Name", "Numbers", "Details", "Courses"];
+  selectedOption: string = this.arr[0]; // Default selected option
+  strData: string = "";
 
-  //   filteredProducts = this.products;
+  urls: { [key: string]: string } = {
+    Name: "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/1g7sq4",
+    Numbers:
+      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/1c3wng",
+    Details:
+      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/16r07g",
+    Courses:
+      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/18py7w",
+  };
 
-  //   onProductSelected(selectedProducts: any[]) {
-  //     this.filteredProducts = selectedProducts;
-  //   }
-  // }
+  constructor(private netService: NetService) {}
 
-  filteredProducts = [];
-
-  // This method will be triggered when a category is selected in the child component
-  onCategorySelected(selectedCategory: string[]) {
-    this.filteredProducts = this.products.filter((product) =>
-      selectedCategory.includes(product.category)
-    );
+  getData() {
+    const url = this.urls[this.selectedOption];
+    if (url) {
+      this.netService.getData(url).subscribe((resp) => {
+        this.strData = JSON.stringify(resp, null, 2);
+      });
+    }
   }
 }

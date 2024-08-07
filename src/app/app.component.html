@@ -1,30 +1,9 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-3 border bg-light">
-      <app-shopping-store
-        (categorySelected)="onCategorySelected($event)"
-      ></app-shopping-store>
-    </div>
-    <div class="col-9 border">
-      <h4>Selected Products</h4>
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Category</th>
-            <th>ID</th>
-            <th>Stock</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let product of filteredProducts">
-            <td>{{ product.name }}</td>
-            <td>{{ product.category }}</td>
-            <td>{{ product.id }}</td>
-            <td>{{ product.stock }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
+<div>
+  <select [(ngModel)]="selectedOption">
+    <option *ngFor="let option of arr" [value]="option">{{ option }}</option>
+  </select>
+  <button class="btn-primary" (click)="getData()">Get Data</button>
+  <div>
+    {{ strData }}
   </div>
 </div>

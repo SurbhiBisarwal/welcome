@@ -3,12 +3,13 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
-import { ShoppingStoreComponent } from './shopping-store/shopping-store.component';
+import { HttpClientModule } from "@angular/common/http";
+import { NetService } from "./net.service";
 
 @NgModule({
-  declarations: [AppComponent, ShoppingStoreComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
-  providers: [],
+  declarations: [AppComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, HttpClientModule],
+  providers: [NetService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
