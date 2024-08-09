@@ -6,28 +6,15 @@ import { NetService } from "./net.service";
   styleUrls: ["./app.component.scss"],
 })
 export class AppComponent {
-  arr: string[] = ["Name", "Numbers", "Details", "Courses"];
-  selectedOption: string = this.arr[0]; // Default selected option
+  urlPost = "https://dummy.restapiexample.com/api/v1/create";
+  cList = ["India", "France", "USA", "Japan"];
   strData: string = "";
-
-  urls: { [key: string]: string } = {
-    Name: "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/1g7sq4",
-    Numbers:
-      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/1c3wng",
-    Details:
-      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/16r07g",
-    Courses:
-      "https://us-central1-fytpo-f6ed3.cloudfunctions.net/app/bins/18py7w",
-  };
 
   constructor(private netService: NetService) {}
 
-  getData() {
-    const url = this.urls[this.selectedOption];
-    if (url) {
-      this.netService.getData(url).subscribe((resp) => {
-        this.strData = JSON.stringify(resp, null, 2);
-      });
-    }
+  postData() {
+    this.netService.postData(this.urlPost, this.cList).subscribe((postresp) => {
+      this.strData = JSON.stringify(postresp);
+    });
   }
 }

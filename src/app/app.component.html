@@ -1,9 +1,4 @@
+<button class="btn-primary" (click)="postData()">Post Data</button>
 <div>
-  <select [(ngModel)]="selectedOption">
-    <option *ngFor="let option of arr" [value]="option">{{ option }}</option>
-  </select>
-  <button class="btn-primary" (click)="getData()">Get Data</button>
-  <div>
-    {{ strData }}
-  </div>
+  {{ strData }}
 </div>
