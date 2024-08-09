@@ -7,14 +7,23 @@ import { NetService } from "./net.service";
 })
 export class AppComponent {
   urlPost = "https://dummy.restapiexample.com/api/v1/create";
-  cList = ["India", "France", "USA", "Japan"];
   strData: string = "";
 
   constructor(private netService: NetService) {}
 
   postData() {
-    this.netService.postData(this.urlPost, this.cList).subscribe((postresp) => {
-      this.strData = JSON.stringify(postresp);
-    });
+    this.netService
+      .postData(this.urlPost, {
+        name: "John Doe",
+        email: "john.doe@example.com",
+      })
+      .subscribe(
+        (postresp) => {
+          this.strData = JSON.stringify(postresp);
+        },
+        (error) => {
+          this.strData = "Error: " + error.message;
+        }
+      );
   }
 }

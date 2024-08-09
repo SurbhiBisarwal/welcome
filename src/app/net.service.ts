@@ -6,9 +6,9 @@ import { Injectable } from "@angular/core";
 })
 export class NetService {
   constructor(private httpClient: HttpClient) {}
-  getData(url) {
-    return this.httpClient.get(url);
-  }
+  // getData(url) {
+  //   return this.httpClient.get(url);
+  // }
   postData(url, data) {
     return this.httpClient.post(url, data);
   }
