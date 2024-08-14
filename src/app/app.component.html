@@ -1,4 +1,16 @@
-<button routerLink="/hello" routerLinkActive="active">Hello</button>
-<button routerLink="/bye" routerLinkActive="active">Bye</button>
-<button routerLink="/" routerLinkActive="active">Home</button>
+<nav class="navbar navbar-expand navbark-dark bg-warning">
+  <a class="navbar-brand" routerLink="/">Edufact</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/hello" routerLinkActive="active"
+          >Hello</a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/bye" routerLinkActive="active">Bye</a>
+      </li>
+    </ul>
+  </div>
+</nav>
 <router-outlet></router-outlet>
