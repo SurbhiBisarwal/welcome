@@ -3,11 +3,13 @@ import { NgModule } from "@angular/core";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { FormsModule } from "@angular/forms";
-import { BooksComponent } from "./books/books.component";
+import { HelloComponent } from "./hello/hello.component";
+import { ByeComponent } from "./bye/bye.component";
+import { Router } from "@angular/router";
 
 @NgModule({
-  declarations: [AppComponent, BooksComponent],
-  imports: [BrowserModule, AppRoutingModule, FormsModule],
+  declarations: [AppComponent, HelloComponent, ByeComponent],
+  imports: [BrowserModule, AppRoutingModule, FormsModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })

@@ -1,31 +1,4 @@
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <span class="navbar-brand mb-0 h1">Library Management</span>
-    <div class="d-flex">
-      <span class="navbar-text mx-2">Total Books: {{ books.length }}</span>
-      <span class="navbar-text mx-2"
-        >Books Issued: {{ reservedBook.length }}</span
-      >
-    </div>
-  </div>
-</nav>
-<div class="container bg-light border">
-  <h2 style="text-align: center">Books in a Library</h2>
-  <div class="row">
-    <div class="col-3" *ngFor="let b1 of books">
-      <app-books [Books]="b1" (issueBook)="reserveBook($event)"></app-books>
-    </div>
-  </div>
-</div>
-<div>
-  <h4 style="padding: 30px">Issued Books</h4>
-  <p *ngIf="reservedBook.length == 0">No books to show</p>
-  <ul *ngIf="reservedBook.length > 0">
-    <li *ngFor="let item of reservedBook">
-      {{ item }}
-      <button class="badge badge-primary" (click)="returnReservedBook(item)">
-        Return
-      </button>
-    </li>
-  </ul>
-</div>
+<button routerLink="/hello" routerLinkActive="active">Hello</button>
+<button routerLink="/bye" routerLinkActive="active">Bye</button>
+<button routerLink="/" routerLinkActive="active">Home</button>
+<router-outlet></router-outlet>
