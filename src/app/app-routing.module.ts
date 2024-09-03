@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HelloComponent,
   },
   {
-    path: "bye",
+    path: "bye/:username",
     component: ByeComponent,
   },
   {
@@ -17,7 +17,7 @@ const routes: Routes = [
     component: HomeComponent,
   },
   {
-    path: " ",
+    path: "",
     redirectTo: "home",
     pathMatch: "full",
   },
